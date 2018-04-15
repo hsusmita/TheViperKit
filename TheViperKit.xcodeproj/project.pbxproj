@@ -11,11 +11,24 @@
 		78889F4E2083365600764978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78889F4C2083365600764978 /* Main.storyboard */; };
 		78889F502083365900764978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78889F4F2083365900764978 /* Assets.xcassets */; };
 		78889F532083365900764978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78889F512083365900764978 /* LaunchScreen.storyboard */; };
-		78889F5C2083375C00764978 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F5B2083375C00764978 /* Scene.swift */; };
 		78889F5E2083378E00764978 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F5D2083378E00764978 /* AppScene.swift */; };
 		78889F63208340F200764978 /* FeedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F62208340F200764978 /* FeedListViewController.swift */; };
 		78889F652083410200764978 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F642083410200764978 /* FeedDetailViewController.swift */; };
 		78889F672083414E00764978 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F662083414E00764978 /* StoryboardInstantiable.swift */; };
+		78889F7D2083448800764978 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F7C2083448800764978 /* Scene.swift */; };
+		78889F88208344B400764978 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F83208344B400764978 /* Location.swift */; };
+		78889F89208344B400764978 /* SuggestedRestaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F84208344B400764978 /* SuggestedRestaurants.swift */; };
+		78889F8A208344B400764978 /* RestaurantStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F85208344B400764978 /* RestaurantStats.swift */; };
+		78889F8B208344B400764978 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F86208344B400764978 /* RestaurantDetail.swift */; };
+		78889F8C208344B400764978 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F87208344B400764978 /* Restaurant.swift */; };
+		78889F97208344DB00764978 /* RequestRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F90208344DB00764978 /* RequestRouterProtocol.swift */; };
+		78889F98208344DB00764978 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F91208344DB00764978 /* Error.swift */; };
+		78889F99208344DB00764978 /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F92208344DB00764978 /* ServiceResult.swift */; };
+		78889F9A208344DB00764978 /* BaseAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F93208344DB00764978 /* BaseAPIClient.swift */; };
+		78889F9B208344DB00764978 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F94208344DB00764978 /* Resource.swift */; };
+		78889F9C208344DB00764978 /* DataResponse+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F95208344DB00764978 /* DataResponse+Parsing.swift */; };
+		78889F9D208344DB00764978 /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F96208344DB00764978 /* RequestRouter.swift */; };
+		78889F9F2083453500764978 /* LabelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889F9E2083453500764978 /* LabelProvider.swift */; };
 		9058E4E534A949158BFBCDD0 /* Pods_TheViperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148095DD6F661042CC1B58D6 /* Pods_TheViperKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,11 +41,24 @@
 		78889F4F2083365900764978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78889F522083365900764978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78889F542083365900764978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		78889F5B2083375C00764978 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		78889F5D2083378E00764978 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		78889F62208340F200764978 /* FeedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListViewController.swift; sourceTree = "<group>"; };
 		78889F642083410200764978 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 		78889F662083414E00764978 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		78889F7C2083448800764978 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		78889F83208344B400764978 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		78889F84208344B400764978 /* SuggestedRestaurants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedRestaurants.swift; sourceTree = "<group>"; };
+		78889F85208344B400764978 /* RestaurantStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantStats.swift; sourceTree = "<group>"; };
+		78889F86208344B400764978 /* RestaurantDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
+		78889F87208344B400764978 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		78889F90208344DB00764978 /* RequestRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouterProtocol.swift; sourceTree = "<group>"; };
+		78889F91208344DB00764978 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		78889F92208344DB00764978 /* ServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceResult.swift; sourceTree = "<group>"; };
+		78889F93208344DB00764978 /* BaseAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPIClient.swift; sourceTree = "<group>"; };
+		78889F94208344DB00764978 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		78889F95208344DB00764978 /* DataResponse+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataResponse+Parsing.swift"; sourceTree = "<group>"; };
+		78889F96208344DB00764978 /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		78889F9E2083453500764978 /* LabelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelProvider.swift; sourceTree = "<group>"; };
 		FE796D9514F8DD9A63DE9515 /* Pods-TheViperKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheViperKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheViperKit/Pods-TheViperKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +85,6 @@
 		78889F3C2083365600764978 = {
 			isa = PBXGroup;
 			children = (
-				78889F5A208336BD00764978 /* Source */,
 				78889F472083365600764978 /* TheViperKit */,
 				78889F462083365600764978 /* Products */,
 				CC640698A421B170D9B785A2 /* Pods */,
@@ -78,6 +103,10 @@
 		78889F472083365600764978 /* TheViperKit */ = {
 			isa = PBXGroup;
 			children = (
+				78889F7B2083448800764978 /* Source */,
+				78889FA02083453E00764978 /* Protocols */,
+				78889F82208344B400764978 /* Entities */,
+				78889F8F208344DB00764978 /* Webservices */,
 				78889F5F2083402E00764978 /* AppScenes */,
 				78889F482083365600764978 /* AppDelegate.swift */,
 				78889F4C2083365600764978 /* Main.storyboard */,
@@ -85,17 +114,8 @@
 				78889F512083365900764978 /* LaunchScreen.storyboard */,
 				78889F542083365900764978 /* Info.plist */,
 				78889F5D2083378E00764978 /* AppScene.swift */,
-				78889F662083414E00764978 /* StoryboardInstantiable.swift */,
 			);
 			path = TheViperKit;
-			sourceTree = "<group>";
-		};
-		78889F5A208336BD00764978 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				78889F5B2083375C00764978 /* Scene.swift */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		78889F5F2083402E00764978 /* AppScenes */ = {
@@ -121,6 +141,49 @@
 				78889F642083410200764978 /* FeedDetailViewController.swift */,
 			);
 			path = FeedDetail;
+			sourceTree = "<group>";
+		};
+		78889F7B2083448800764978 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				78889F7C2083448800764978 /* Scene.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		78889F82208344B400764978 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				78889F83208344B400764978 /* Location.swift */,
+				78889F84208344B400764978 /* SuggestedRestaurants.swift */,
+				78889F85208344B400764978 /* RestaurantStats.swift */,
+				78889F86208344B400764978 /* RestaurantDetail.swift */,
+				78889F87208344B400764978 /* Restaurant.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		78889F8F208344DB00764978 /* Webservices */ = {
+			isa = PBXGroup;
+			children = (
+				78889F90208344DB00764978 /* RequestRouterProtocol.swift */,
+				78889F91208344DB00764978 /* Error.swift */,
+				78889F92208344DB00764978 /* ServiceResult.swift */,
+				78889F93208344DB00764978 /* BaseAPIClient.swift */,
+				78889F94208344DB00764978 /* Resource.swift */,
+				78889F95208344DB00764978 /* DataResponse+Parsing.swift */,
+				78889F96208344DB00764978 /* RequestRouter.swift */,
+			);
+			path = Webservices;
+			sourceTree = "<group>";
+		};
+		78889FA02083453E00764978 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				78889F662083414E00764978 /* StoryboardInstantiable.swift */,
+				78889F9E2083453500764978 /* LabelProvider.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CC640698A421B170D9B785A2 /* Pods */ = {
@@ -246,12 +309,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78889F8C208344B400764978 /* Restaurant.swift in Sources */,
+				78889F9B208344DB00764978 /* Resource.swift in Sources */,
 				78889F5E2083378E00764978 /* AppScene.swift in Sources */,
+				78889F99208344DB00764978 /* ServiceResult.swift in Sources */,
+				78889F9C208344DB00764978 /* DataResponse+Parsing.swift in Sources */,
 				78889F652083410200764978 /* FeedDetailViewController.swift in Sources */,
+				78889F98208344DB00764978 /* Error.swift in Sources */,
+				78889F9A208344DB00764978 /* BaseAPIClient.swift in Sources */,
+				78889F9D208344DB00764978 /* RequestRouter.swift in Sources */,
+				78889F8A208344B400764978 /* RestaurantStats.swift in Sources */,
+				78889F9F2083453500764978 /* LabelProvider.swift in Sources */,
+				78889F8B208344B400764978 /* RestaurantDetail.swift in Sources */,
+				78889F7D2083448800764978 /* Scene.swift in Sources */,
 				78889F63208340F200764978 /* FeedListViewController.swift in Sources */,
+				78889F89208344B400764978 /* SuggestedRestaurants.swift in Sources */,
 				78889F492083365600764978 /* AppDelegate.swift in Sources */,
 				78889F672083414E00764978 /* StoryboardInstantiable.swift in Sources */,
-				78889F5C2083375C00764978 /* Scene.swift in Sources */,
+				78889F97208344DB00764978 /* RequestRouterProtocol.swift in Sources */,
+				78889F88208344B400764978 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +474,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TheViperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hsusmita.TheViperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -413,7 +492,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TheViperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hsusmita.TheViperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
