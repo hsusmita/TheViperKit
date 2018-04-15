@@ -23,10 +23,10 @@ enum AppScene: Scene {
     }
     
     private func configureFeedList() -> UIViewController {
-        return UIViewController()
+        return FeedListViewController.storyboardInstance
     }
     
     private func configureFeedDetail() -> UIViewController {
-        return UIViewController()
+        return FeedDetailViewController.storyboardInstance
     }
 }
