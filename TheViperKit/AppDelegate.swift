@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let rootViewController = AppScene.restaurantList.viewController
+        if let delegate = application.delegate, let currentWindow = delegate.window {
+            currentWindow?.rootViewController = rootViewController
+            currentWindow?.makeKeyAndVisible()
+            currentWindow?.backgroundColor = UIColor.white
+        }
         return true
     }
 

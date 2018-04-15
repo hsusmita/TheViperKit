@@ -9,33 +9,75 @@
 import UIKit
 
 class RestaurantListViewController: UIViewController {
+    @IBOutlet var tableView: UITableView!
+    private var restaurantListPresenter: RestaurantListPresenterProtocol?
+    private var restaurantViewModels: [RestaurantViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        configureTableView()
+        presenter?.viewDidLoad()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func configureTableView() {
+        let nib = UINib(nibName: "RestaurantTableViewCell", bundle: Bundle.main)
+        self.tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
+        self.tableView.dataSource = self
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 150.0
     }
-    */
-
 }
 
 extension RestaurantListViewController: StoryboardInstantiable {
     static var storyboardName: String {
         return "Main"
+    }
+}
+
+extension RestaurantListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.restaurantViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as! RestaurantTableViewCell
+        cell.configure(model: self.restaurantViewModels[indexPath.row])
+        return cell
+    }
+}
+
+extension RestaurantListViewController: RestaurantListViewProtocol {
+    var presenter: RestaurantListPresenterProtocol? {
+        get {
+            return restaurantListPresenter
+        }
+        set {
+            restaurantListPresenter = newValue
+        }
+    }
+    
+    func reload(list: [RestaurantViewModel]) {
+        self.restaurantViewModels = list
+        self.tableView.reloadData()
+    }
+    
+    func showError(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(alertAction)
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
     }
 }

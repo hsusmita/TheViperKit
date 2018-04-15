@@ -11,7 +11,7 @@ import Foundation
 protocol RestaurantListViewProtocol: class {
     var presenter: RestaurantListPresenterProtocol? { get set }
     func reload(list: [RestaurantViewModel])
-    func showError()
+    func showError(title: String, message: String)
     func showLoading()
     func hideLoading()
 }

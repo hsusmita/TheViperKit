@@ -23,7 +23,14 @@ enum AppScene: Scene {
     }
     
     private func configureRestaurantList() -> UIViewController {
-        return RestaurantListViewController.storyboardInstance
+        let viewController = RestaurantListViewController.storyboardInstance
+        let presenter = RestaurantListPresenter()
+        let interactor = RestaurantListInteractor(baseApiClient: BaseAPIClient.shared)
+        viewController.presenter = presenter
+        presenter.view = viewController
+        presenter.interactor = interactor
+        interactor.presenter = presenter
+        return viewController
     }
     
     private func configureRestaurantDetail() -> UIViewController {
