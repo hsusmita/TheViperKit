@@ -1,5 +1,5 @@
 //
-//  FeedListViewController.swift
+//  RestaurantListViewController.swift
 //  TheViperKit
 //
 //  Created by Susmita Horrow on 15/04/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedListViewController: UIViewController {
+class RestaurantListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class FeedListViewController: UIViewController {
 
 }
 
-extension FeedListViewController: StoryboardInstantiable {
+extension RestaurantListViewController: StoryboardInstantiable {
     static var storyboardName: String {
         return "Main"
     }

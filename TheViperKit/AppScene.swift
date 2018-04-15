@@ -9,24 +9,24 @@
 import UIKit
 
 enum AppScene: Scene {    
-    case feedList
-    case feedDetail
+    case restaurantList
+    case restaurantDetail
     
     var viewController: UIViewController {
         switch self {
-        case .feedList:
-            return configureFeedList()
+        case .restaurantList:
+            return configureRestaurantList()
             
-        case .feedDetail:
-            return configureFeedDetail()
+        case .restaurantDetail:
+            return configureRestaurantDetail()
         }
     }
     
-    private func configureFeedList() -> UIViewController {
-        return FeedListViewController.storyboardInstance
+    private func configureRestaurantList() -> UIViewController {
+        return RestaurantListViewController.storyboardInstance
     }
     
-    private func configureFeedDetail() -> UIViewController {
-        return FeedDetailViewController.storyboardInstance
+    private func configureRestaurantDetail() -> UIViewController {
+        return RestaurantDetailViewController.storyboardInstance
     }
 }
