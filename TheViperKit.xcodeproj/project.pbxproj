@@ -42,6 +42,7 @@
 		78889FC92084424700764978 /* RestaurantDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FC82084424700764978 /* RestaurantDetailInteractor.swift */; };
 		78889FCD208445F600764978 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FCB208445F600764978 /* RestaurantDetailViewModel.swift */; };
 		78889FCE208445F600764978 /* RestaurantStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FCC208445F600764978 /* RestaurantStatViewModel.swift */; };
+		78889FF42084A05400764978 /* VIPERProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FF32084A05400764978 /* VIPERProtocols.swift */; };
 		9058E4E534A949158BFBCDD0 /* Pods_TheViperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148095DD6F661042CC1B58D6 /* Pods_TheViperKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		78889FC82084424700764978 /* RestaurantDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailInteractor.swift; sourceTree = "<group>"; };
 		78889FCB208445F600764978 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewModel.swift; sourceTree = "<group>"; };
 		78889FCC208445F600764978 /* RestaurantStatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantStatViewModel.swift; sourceTree = "<group>"; };
+		78889FF32084A05400764978 /* VIPERProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPERProtocols.swift; sourceTree = "<group>"; };
 		FE796D9514F8DD9A63DE9515 /* Pods-TheViperKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheViperKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheViperKit/Pods-TheViperKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 		78889F7B2083448800764978 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78889FF32084A05400764978 /* VIPERProtocols.swift */,
 				78889F7C2083448800764978 /* Scene.swift */,
 				78889FA720834F0C00764978 /* ScenePresenter.swift */,
 				78889FA520834E7800764978 /* Router.swift */,
@@ -399,6 +402,7 @@
 				78889F63208340F200764978 /* RestaurantListViewController.swift in Sources */,
 				78889F89208344B400764978 /* SuggestedRestaurants.swift in Sources */,
 				78889F492083365600764978 /* AppDelegate.swift in Sources */,
+				78889FF42084A05400764978 /* VIPERProtocols.swift in Sources */,
 				78889F672083414E00764978 /* StoryboardInstantiable.swift in Sources */,
 				78889F97208344DB00764978 /* RequestRouterProtocol.swift in Sources */,
 				78889F88208344B400764978 /* Location.swift in Sources */,
