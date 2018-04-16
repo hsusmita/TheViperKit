@@ -12,8 +12,6 @@ protocol RestaurantListViewProtocol: class {
     var presenter: RestaurantListPresenterProtocol? { get set }
     func reload(list: [RestaurantViewModel])
     func showError(title: String, message: String)
-    func showLoading()
-    func hideLoading()
 }
 
 protocol RestaurantListPresenterProtocol: class {
@@ -22,6 +20,7 @@ protocol RestaurantListPresenterProtocol: class {
     var router: Router? { get set }
     var scenePresenster: ScenePresenter? { get set }
     func viewDidLoad()
+    func didSelect(viewModel: RestaurantViewModel)
 }
 
 protocol RestaurantListInteractorOutputProtocol: class {

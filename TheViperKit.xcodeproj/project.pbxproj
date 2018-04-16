@@ -38,6 +38,10 @@
 		78889FAE2083978D00764978 /* RestaurantListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FAD2083978D00764978 /* RestaurantListInteractor.swift */; };
 		78889FC22083D1D600764978 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FC02083D1D600764978 /* RestaurantTableViewCell.swift */; };
 		78889FC32083D1D600764978 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78889FC12083D1D600764978 /* RestaurantTableViewCell.xib */; };
+		78889FC52084403700764978 /* RestaurantDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FC42084403700764978 /* RestaurantDetailPresenter.swift */; };
+		78889FC92084424700764978 /* RestaurantDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FC82084424700764978 /* RestaurantDetailInteractor.swift */; };
+		78889FCD208445F600764978 /* RestaurantDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FCB208445F600764978 /* RestaurantDetailViewModel.swift */; };
+		78889FCE208445F600764978 /* RestaurantStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78889FCC208445F600764978 /* RestaurantStatViewModel.swift */; };
 		9058E4E534A949158BFBCDD0 /* Pods_TheViperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148095DD6F661042CC1B58D6 /* Pods_TheViperKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +81,10 @@
 		78889FAD2083978D00764978 /* RestaurantListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListInteractor.swift; sourceTree = "<group>"; };
 		78889FC02083D1D600764978 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		78889FC12083D1D600764978 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		78889FC42084403700764978 /* RestaurantDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailPresenter.swift; sourceTree = "<group>"; };
+		78889FC82084424700764978 /* RestaurantDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailInteractor.swift; sourceTree = "<group>"; };
+		78889FCB208445F600764978 /* RestaurantDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewModel.swift; sourceTree = "<group>"; };
+		78889FCC208445F600764978 /* RestaurantStatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantStatViewModel.swift; sourceTree = "<group>"; };
 		FE796D9514F8DD9A63DE9515 /* Pods-TheViperKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheViperKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheViperKit/Pods-TheViperKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,11 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				78889FBF2083D1D600764978 /* Cells */,
+				78889FC72084404300764978 /* ViewModels */,
 				78889FA12083464E00764978 /* RestaurantListProtocols.swift */,
 				78889F62208340F200764978 /* RestaurantListViewController.swift */,
 				78889FAB2083977600764978 /* RestaurantListPresenter.swift */,
 				78889FAD2083978D00764978 /* RestaurantListInteractor.swift */,
-				78889FA92083966E00764978 /* RestuarantViewModel.swift */,
 			);
 			path = RestaurantList;
 			sourceTree = "<group>";
@@ -161,8 +169,11 @@
 		78889F612083404400764978 /* RestaurantDetail */ = {
 			isa = PBXGroup;
 			children = (
+				78889FCA208445F600764978 /* ViewModels */,
 				78889FA32083466100764978 /* RestaurantDetailProtocols.swift */,
 				78889F642083410200764978 /* RestaurantDetailViewController.swift */,
+				78889FC42084403700764978 /* RestaurantDetailPresenter.swift */,
+				78889FC82084424700764978 /* RestaurantDetailInteractor.swift */,
 			);
 			path = RestaurantDetail;
 			sourceTree = "<group>";
@@ -219,6 +230,23 @@
 				78889FC12083D1D600764978 /* RestaurantTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		78889FC72084404300764978 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				78889FA92083966E00764978 /* RestuarantViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		78889FCA208445F600764978 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				78889FCB208445F600764978 /* RestaurantDetailViewModel.swift */,
+				78889FCC208445F600764978 /* RestaurantStatViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CC640698A421B170D9B785A2 /* Pods */ = {
@@ -357,8 +385,12 @@
 				78889F9C208344DB00764978 /* DataResponse+Parsing.swift in Sources */,
 				78889FA42083466100764978 /* RestaurantDetailProtocols.swift in Sources */,
 				78889F652083410200764978 /* RestaurantDetailViewController.swift in Sources */,
+				78889FCD208445F600764978 /* RestaurantDetailViewModel.swift in Sources */,
 				78889F98208344DB00764978 /* Error.swift in Sources */,
+				78889FCE208445F600764978 /* RestaurantStatViewModel.swift in Sources */,
 				78889F9A208344DB00764978 /* BaseAPIClient.swift in Sources */,
+				78889FC92084424700764978 /* RestaurantDetailInteractor.swift in Sources */,
+				78889FC52084403700764978 /* RestaurantDetailPresenter.swift in Sources */,
 				78889F9D208344DB00764978 /* RequestRouter.swift in Sources */,
 				78889F8A208344B400764978 /* RestaurantStats.swift in Sources */,
 				78889F9F2083453500764978 /* LabelProvider.swift in Sources */,

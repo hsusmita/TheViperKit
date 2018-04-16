@@ -23,6 +23,7 @@ class RestaurantListViewController: UIViewController {
         let nib = UINib(nibName: "RestaurantTableViewCell", bundle: Bundle.main)
         self.tableView.register(nib, forCellReuseIdentifier: "RestaurantTableViewCell")
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150.0
     }
@@ -51,6 +52,12 @@ extension RestaurantListViewController: UITableViewDataSource {
     }
 }
 
+extension RestaurantListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter?.didSelect(viewModel: restaurantViewModels[indexPath.row])
+    }
+}
+
 extension RestaurantListViewController: RestaurantListViewProtocol {
     var presenter: RestaurantListPresenterProtocol? {
         get {
@@ -72,12 +79,10 @@ extension RestaurantListViewController: RestaurantListViewProtocol {
         alertVC.addAction(alertAction)
         present(alertVC, animated: true, completion: nil)
     }
-    
-    func showLoading() {
-        
-    }
-    
-    func hideLoading() {
-        
+}
+
+extension RestaurantListViewController: ScenePresenter {
+    func present(viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

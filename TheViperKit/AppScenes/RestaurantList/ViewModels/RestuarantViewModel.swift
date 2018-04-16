@@ -9,13 +9,15 @@
 import Foundation
 
 struct RestaurantViewModel {
+    let id: String
     let name: String
     let address: String
     let rating: String
     let price: String
     let verified: Bool
     
-    init(name: String, address: String, rating: String, price: String, verified: Bool) {
+    init(id: String, name: String, address: String, rating: String, price: String, verified: Bool) {
+        self.id = id
         self.name = name
         self.address = address
         self.rating = rating
@@ -24,6 +26,7 @@ struct RestaurantViewModel {
     }
     
     init(restaurant: Restaurant) {
+        self.id = restaurant.id
         self.name = restaurant.name
         self.price = "Price Tier: \(restaurant.price)"
         self.verified = restaurant.verified

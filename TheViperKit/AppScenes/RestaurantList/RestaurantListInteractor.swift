@@ -9,7 +9,7 @@
 import Foundation
 
 class RestaurantListInteractor: RestaurantListInteractorInputProtocol {
-   weak var presenter: RestaurantListInteractorOutputProtocol?
+    weak var presenter: RestaurantListInteractorOutputProtocol?
     private let baseApiClient: BaseAPIClient
     
     init(baseApiClient: BaseAPIClient) {

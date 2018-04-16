@@ -17,11 +17,11 @@ struct RestaurantDetail: Codable {
 extension RestaurantDetail {
 	enum CodingKeys: String, CodingKey {
 		case venue
-		case likes
 	}
 
 	enum VenueKeys: String, CodingKey {
 		case stats
+        case likes
 	}
 
 	enum LikeKeys: String, CodingKey {
@@ -33,14 +33,14 @@ extension RestaurantDetail {
 		restaurant = try container.decode(Restaurant.self, forKey: .venue)
 		let venueContainer = try container.nestedContainer(keyedBy: VenueKeys.self, forKey: .venue)
 		stats = try venueContainer.decode(RestaurantStats.self, forKey: .stats)
-		let likesContainer = try container.nestedContainer(keyedBy: LikeKeys.self, forKey: .likes)
+		let likesContainer = try venueContainer.nestedContainer(keyedBy: LikeKeys.self, forKey: .likes)
 		likeCount = try likesContainer.decode(Int.self, forKey: .count)
 	}
 
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(restaurant, forKey: .venue)
-		var likesContainer = container.nestedContainer(keyedBy: LikeKeys.self, forKey: .likes)
+		var likesContainer = container.nestedContainer(keyedBy: LikeKeys.self, forKey: .venue)
 		try likesContainer.encode(likeCount, forKey: .count)
 		var venueContainer = container.nestedContainer(keyedBy: VenueKeys.self, forKey: .venue)
 		try venueContainer.encode(stats, forKey: .stats)

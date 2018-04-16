@@ -10,15 +10,15 @@ import UIKit
 
 enum AppScene: Scene {    
     case restaurantList
-    case restaurantDetail
+    case restaurantDetail(id: String)
     
     var viewController: UIViewController {
         switch self {
         case .restaurantList:
             return configureRestaurantList()
             
-        case .restaurantDetail:
-            return configureRestaurantDetail()
+        case .restaurantDetail(let id):
+            return configureRestaurantDetail(id: id)
         }
     }
     
@@ -29,11 +29,21 @@ enum AppScene: Scene {
         viewController.presenter = presenter
         presenter.view = viewController
         presenter.interactor = interactor
+        presenter.router = Router()
+        presenter.scenePresenster = viewController
         interactor.presenter = presenter
-        return viewController
+        let navigationController = UINavigationController(rootViewController: viewController)
+        return navigationController
     }
     
-    private func configureRestaurantDetail() -> UIViewController {
-        return RestaurantDetailViewController.storyboardInstance
+    private func configureRestaurantDetail(id: String) -> UIViewController {
+        let viewController = RestaurantDetailViewController.storyboardInstance
+        let presenter = RestaurantDetailPresenter(restaurantId: id)
+        let interactor = RestaurantDetailInteractor(baseApiClient: BaseAPIClient.shared)
+        viewController.presenter = presenter
+        presenter.view = viewController
+        presenter.interactor = interactor
+        interactor.presenter = presenter
+        return viewController
     }
 }

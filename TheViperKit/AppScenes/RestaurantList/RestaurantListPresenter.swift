@@ -27,4 +27,11 @@ class RestaurantListPresenter: RestaurantListPresenterProtocol, RestaurantListIn
             view?.showError(title: error.title, message: error.errorDescription ?? "")
         }
     }
+    
+    func didSelect(viewModel: RestaurantViewModel) {
+        guard let scenePresenster = scenePresenster else {
+            return
+        }
+        router?.present(scene: AppScene.restaurantDetail(id: viewModel.id), scenePresenter: scenePresenster)
+    }    
 }
