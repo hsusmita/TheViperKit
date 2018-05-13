@@ -8,15 +8,19 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
-    private var restaurantListPresenter: RestaurantListPresenterProtocol?
+class RestaurantListViewController: UIViewController, View {
+	typealias Event = RestaurantListViewEvent
+	typealias Command = RestaurantListPresenterCommand
+	
+	var eventListener: AnyEventListener<RestaurantListViewEvent>?
+    
+	@IBOutlet var tableView: UITableView!
     private var restaurantViewModels: [RestaurantViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        presenter?.viewDidLoad()
+        eventListener?.handle(event: .viewDidLoad)
     }
     
     private func configureTableView() {
@@ -27,6 +31,15 @@ class RestaurantListViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150.0
     }
+	
+	func handle(command: RestaurantListPresenterCommand) {
+		switch command {
+		case .reload(let list):
+			self.reload(list: list)
+		case .showError(let title, let message):
+			self.showError(title: title, message: message)
+		}
+	}
 }
 
 extension RestaurantListViewController: StoryboardInstantiable {
@@ -54,20 +67,11 @@ extension RestaurantListViewController: UITableViewDataSource {
 
 extension RestaurantListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.presenter?.didSelect(viewModel: restaurantViewModels[indexPath.row])
+		self.eventListener?.handle(event: .didSelect(viewModel: restaurantViewModels[indexPath.row]))
     }
 }
 
-extension RestaurantListViewController: RestaurantListViewProtocol {
-    var presenter: RestaurantListPresenterProtocol? {
-        get {
-            return restaurantListPresenter
-        }
-        set {
-            restaurantListPresenter = newValue
-        }
-    }
-    
+extension RestaurantListViewController {
     func reload(list: [RestaurantViewModel]) {
         self.restaurantViewModels = list
         self.tableView.reloadData()

@@ -26,13 +26,11 @@ enum AppScene: Scene {
         let viewController = RestaurantListViewController.storyboardInstance
         let presenter = RestaurantListPresenter()
         let interactor = RestaurantListInteractor(baseApiClient: BaseAPIClient.shared)
-        viewController.presenter = presenter
-        presenter.view = viewController
-        presenter.interactor = interactor
-        presenter.router = Router()
-        presenter.scenePresenster = viewController
-        interactor.presenter = presenter
-        let navigationController = UINavigationController(rootViewController: viewController)
+		self.build(view: viewController,
+				   presenter: presenter, 
+				   interactor: interactor,
+				   scenePresenter: viewController)
+         let navigationController = UINavigationController(rootViewController: viewController)
         return navigationController
     }
     
@@ -40,10 +38,10 @@ enum AppScene: Scene {
         let viewController = RestaurantDetailViewController.storyboardInstance
         let presenter = RestaurantDetailPresenter(restaurantId: id)
         let interactor = RestaurantDetailInteractor(baseApiClient: BaseAPIClient.shared)
-        viewController.presenter = presenter
-        presenter.view = viewController
-        presenter.interactor = interactor
-        interactor.presenter = presenter
+		self.build(view: viewController,
+				   presenter: presenter, 
+				   interactor: interactor,
+				   scenePresenter: nil)
         return viewController
     }
 }

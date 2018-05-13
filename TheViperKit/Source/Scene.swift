@@ -13,8 +13,16 @@ protocol Scene {
 }
 
 extension Scene {
-    func build<V: View, P: Presenter, I: Interactor>(view: V, presenter: P, interactor: I, scenePresenter: ScenePresenter?) where V.Event == P.Event,
-        I.Request == P.Request, I.Response == P.Response, V.Command == P.Command {
+    func build<V: View, P: Presenter, I: Interactor>(
+		view: V,
+		presenter: P,
+		interactor: I,
+		scenePresenter: ScenePresenter?) 
+		where
+		V.Event == P.Event, 
+		I.Request == P.Request,
+		I.Response == P.Response, 
+		V.Command == P.Command {
             presenter.commandListener = AnyCommandListener<P.Command>(handler: view.handle)
             presenter.requestListener = AnyRequestListener<P.Request>(handler: interactor.handle)
             view.eventListener = AnyEventListener<P.Event>(handler: presenter.handle)

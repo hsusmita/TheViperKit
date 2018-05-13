@@ -8,18 +8,29 @@
 
 import Foundation
 
-class RestaurantDetailInteractor: RestaurantDetailInteractorInputProtocol {
-    var presenter: RestaurantDetailInteractorOutputProtocol?
+class RestaurantDetailInteractor: Interactor {
+	typealias Request = RestaurantDetailInteractorRequest
+	typealias Response = RestaurantDetailInteractorResponse
+	
+	var responseListener: AnyResponseListener<RestaurantDetailInteractorResponse>?
+
     private let baseApiClient: BaseAPIClient
 
     init(baseApiClient: BaseAPIClient) {
         self.baseApiClient = baseApiClient
     }
-    
-    func fetchRestaurantDetail(id: String) {
+	
+	func handle(request: RestaurantDetailInteractorRequest) {
+		switch request {
+		case .fetchRestaurantDetail(let id):
+			self.fetchRestaurantDetail(id: id)
+		}
+	}
+	
+    private func fetchRestaurantDetail(id: String) {
         let resource = Resource<RestaurantDetail>(requestRouter: RequestRouter.fetchDetail(id: id))
-        baseApiClient.request(resource) { [weak presenter] result in
-            presenter?.restaurantDetailReceived(result: result)
+        baseApiClient.request(resource) { [weak responseListener] result in
+            responseListener?.handle(response: .restaurantDetailReceived(result: result))
         }
     }
 }

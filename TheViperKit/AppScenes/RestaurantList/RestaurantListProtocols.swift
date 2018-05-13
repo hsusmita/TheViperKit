@@ -8,26 +8,20 @@
 
 import Foundation
 
-protocol RestaurantListViewProtocol: class {
-    var presenter: RestaurantListPresenterProtocol? { get set }
-    func reload(list: [RestaurantViewModel])
-    func showError(title: String, message: String)
+enum RestaurantListPresenterCommand: PresenterCommand {
+    case reload(list: [RestaurantViewModel])
+    case showError(title: String, message: String)
 }
 
-protocol RestaurantListPresenterProtocol: class {
-    var view: RestaurantListViewProtocol? { get set }
-    var interactor: RestaurantListInteractorInputProtocol? { get set }
-    var router: Router? { get set }
-    var scenePresenster: ScenePresenter? { get set }
-    func viewDidLoad()
-    func didSelect(viewModel: RestaurantViewModel)
+enum RestaurantListViewEvent: ViewEvent {
+    case viewDidLoad
+    case didSelect(viewModel: RestaurantViewModel)
 }
 
-protocol RestaurantListInteractorOutputProtocol: class {
-    func restaurantsReceived(result: ServiceResult<[Restaurant]>)
+enum RestaurantListInteractorRequest: InteractorRequest {
+    case fetchNearbyRestaurants
 }
 
-protocol RestaurantListInteractorInputProtocol: class {
-    var presenter: RestaurantListInteractorOutputProtocol? { get set }
-    func fetchNearbyRestaurants()
+enum RestaurantListInteractorResponse: InteractorResponse {
+    case restaurantsReceived(result: ServiceResult<[Restaurant]>)
 }

@@ -8,28 +8,49 @@
 
 import Foundation
 
-class RestaurantListPresenter: RestaurantListPresenterProtocol, RestaurantListInteractorOutputProtocol {
-    weak var view: RestaurantListViewProtocol?    
-    var interactor: RestaurantListInteractorInputProtocol?
+class RestaurantListPresenter: Presenter {
+	typealias Event = RestaurantListViewEvent
+	typealias Command = RestaurantListPresenterCommand
+	typealias Request = RestaurantListInteractorRequest
+	typealias Response = RestaurantListInteractorResponse
+	
+	var requestListener: AnyRequestListener<RestaurantListInteractorRequest>?
+	var commandListener: AnyCommandListener<RestaurantListPresenterCommand>?
+	var scenePresenter: ScenePresenter?
     var router: Router?
-    var scenePresenster: ScenePresenter?
     
-    func viewDidLoad() {
-        interactor?.fetchNearbyRestaurants()
+	func handle(event: RestaurantListViewEvent) {
+		switch event {
+		case .viewDidLoad:
+			self.requestListener?.handle(request: .fetchNearbyRestaurants)
+		case .didSelect(let viewModel):
+			self.didSelect(viewModel: viewModel)
+		}
+	}
+	
+	func handle(response: RestaurantListInteractorResponse) {
+		switch response {
+		case .restaurantsReceived(let result):
+			self.restaurantsReceived(result: result)
+		}
+	}
+	
+    private func viewDidLoad() {
+        self.requestListener?.handle(request: .fetchNearbyRestaurants)
     }
     
-    func restaurantsReceived(result: ServiceResult<[Restaurant]>) {
+    private func restaurantsReceived(result: ServiceResult<[Restaurant]>) {
         switch result {
         case .success(let restaurants):
             let list = restaurants.map { RestaurantViewModel(restaurant: $0) }
-            view?.reload(list: list)
+            self.commandListener?.handle(command: .reload(list: list))
         case .failure(let error):
-            view?.showError(title: error.title, message: error.errorDescription ?? "")
+			self.commandListener?.handle(command: .showError(title: error.title, message: error.errorDescription ?? ""))
         }
     }
     
-    func didSelect(viewModel: RestaurantViewModel) {
-        guard let scenePresenster = scenePresenster else {
+    private func didSelect(viewModel: RestaurantViewModel) {
+        guard let scenePresenster = scenePresenter else {
             return
         }
         router?.present(scene: AppScene.restaurantDetail(id: viewModel.id), scenePresenter: scenePresenster)

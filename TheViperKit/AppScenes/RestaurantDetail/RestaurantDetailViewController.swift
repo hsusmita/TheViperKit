@@ -8,7 +8,12 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController {
+class RestaurantDetailViewController: UIViewController, View {	
+	typealias Event = RestaurantDetailViewEvent
+	typealias Command = RestaurantDetailPresenterCommand
+	
+	var eventListener: AnyEventListener<RestaurantDetailViewEvent>?
+	
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var likeCountLabel: UILabel!
     @IBOutlet var checkinsCountLabel: UILabel!
@@ -16,13 +21,20 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet var tipCountLabel: UILabel!
     @IBOutlet var visitsCountLabel: UILabel!
     
-    private var restaurantDetailPresenter: RestaurantDetailPresenterProtocol?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
+        self.eventListener?.handle(event: .viewDidLoad)
     }
-    
+	
+	func handle(command: RestaurantDetailPresenterCommand) {
+		switch command {
+		case .reload(let detail):
+			self.configureDetailView(model: detail)
+		case .showError(let title, let message):
+			self.showError(title: title, message: message)
+		}
+	}
+	
     private func configureDetailView(model: RestaurantDetailViewModel) {
         self.nameLabel.text = model.restaurantViewModel.name
         self.likeCountLabel.text = model.likeCount
@@ -31,6 +43,13 @@ class RestaurantDetailViewController: UIViewController {
         self.tipCountLabel.text = model.restaurantStatModel.tipCount
         self.visitsCountLabel.text = model.restaurantStatModel.visitsCount
     }
+	
+	private func showError(title: String, message: String) {
+		let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+		alertVC.addAction(alertAction)
+		present(alertVC, animated: true, completion: nil)      
+	}
 }
 
 extension RestaurantDetailViewController: StoryboardInstantiable {
@@ -39,24 +58,3 @@ extension RestaurantDetailViewController: StoryboardInstantiable {
     }
 }
 
-extension RestaurantDetailViewController: RestaurantDetailViewProtocol {
-    var presenter: RestaurantDetailPresenterProtocol? {
-        get {
-            return restaurantDetailPresenter
-        }
-        set {
-            restaurantDetailPresenter = newValue
-        }
-    }
-    
-    func reload(detail: RestaurantDetailViewModel) {
-        self.configureDetailView(model: detail)
-    }
-    
-    func showError(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertVC.addAction(alertAction)
-        present(alertVC, animated: true, completion: nil)      
-    }
-}

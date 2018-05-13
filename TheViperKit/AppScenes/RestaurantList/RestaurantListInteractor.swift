@@ -8,23 +8,34 @@
 
 import Foundation
 
-class RestaurantListInteractor: RestaurantListInteractorInputProtocol {
-    weak var presenter: RestaurantListInteractorOutputProtocol?
+class RestaurantListInteractor: Interactor {
+	typealias Response = RestaurantListInteractorResponse
+	typealias Request = RestaurantListInteractorRequest
+	
     private let baseApiClient: BaseAPIClient
     
     init(baseApiClient: BaseAPIClient) {
         self.baseApiClient = baseApiClient
     }
     
-    func fetchNearbyRestaurants() {
+	var responseListener: AnyResponseListener<RestaurantListInteractorResponse>?
+	
+	func handle(request: RestaurantListInteractorRequest) {
+		switch request {
+		case .fetchNearbyRestaurants:
+			self.fetchNearbyRestaurants()
+		}
+	}
+
+    private func fetchNearbyRestaurants() {
         let resource = Resource<SuggestedRestaurants>(requestRouter: RequestRouter.fetchList)
-        baseApiClient.request(resource) { [weak presenter] result in
+        self.baseApiClient.request(resource) { [weak responseListener] result in
             switch result {
             case .success(let suggestedRestaurants):
-                presenter?.restaurantsReceived(result: ServiceResult.success(suggestedRestaurants.list))
+				responseListener?.handle(response: .restaurantsReceived(result: ServiceResult.success(suggestedRestaurants.list)))
 
             case .failure(let error):
-                presenter?.restaurantsReceived(result: ServiceResult.failure(error))
+				responseListener?.handle(response: .restaurantsReceived(result: ServiceResult.failure(error)))
             }
         }
     }
