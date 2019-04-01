@@ -12,7 +12,7 @@ class RestaurantDetailInteractor: Interactor {
 	typealias Request = RestaurantDetailInteractorRequest
 	typealias Response = RestaurantDetailInteractorResponse
 	
-	var responseListener: AnyResponseListener<RestaurantDetailInteractorResponse>?
+	weak var responseListener: AnyResponseListener<RestaurantDetailInteractorResponse>?
 
     private let baseApiClient: BaseAPIClient
 

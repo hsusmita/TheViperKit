@@ -15,9 +15,9 @@ class RestaurantDetailPresenter: Presenter {
 	typealias Response = RestaurantDetailInteractorResponse
 	
 	var requestListener: AnyRequestListener<RestaurantDetailInteractorRequest>?
-	var commandListener: AnyCommandListener<RestaurantDetailPresenterCommand>?	
+	weak var commandListener: AnyCommandListener<RestaurantDetailPresenterCommand>?
 	var router: Router?
-	var scenePresenter: ScenePresenter?
+	weak var scenePresenter: ScenePresenter?
 	
     private let restaurantId: String
     

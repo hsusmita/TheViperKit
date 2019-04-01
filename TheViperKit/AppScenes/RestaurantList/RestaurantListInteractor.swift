@@ -18,7 +18,7 @@ class RestaurantListInteractor: Interactor {
         self.baseApiClient = baseApiClient
     }
     
-	var responseListener: AnyResponseListener<RestaurantListInteractorResponse>?
+	weak var responseListener: AnyResponseListener<RestaurantListInteractorResponse>?
 	
 	func handle(request: RestaurantListInteractorRequest) {
 		switch request {

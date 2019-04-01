@@ -15,8 +15,8 @@ class RestaurantListPresenter: Presenter {
 	typealias Response = RestaurantListInteractorResponse
 	
 	var requestListener: AnyRequestListener<RestaurantListInteractorRequest>?
-	var commandListener: AnyCommandListener<RestaurantListPresenterCommand>?
-	var scenePresenter: ScenePresenter?
+	weak var commandListener: AnyCommandListener<RestaurantListPresenterCommand>?
+	weak var scenePresenter: ScenePresenter?
     var router: Router?
     
 	func handle(event: RestaurantListViewEvent) {
